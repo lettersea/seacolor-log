@@ -1,0 +1,16 @@
+{
+  "name": "seacolor-log",
+  "version": "1.0.0",
+  "description": "a light style library for terminal input in node by ANSI escape code",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "terminal",
+    "node"
+  ],
+  "author": "",
+  "license": "MIT"
+}
