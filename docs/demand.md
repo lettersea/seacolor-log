@@ -27,3 +27,6 @@
 - https://hexdocs.pm/color_palette/color_table.html
 ```
 
+### 兼容 Node 和 浏览器
+
+需求: 可以对 Node 和 浏览器下的 console.log 输出样式进行包装
