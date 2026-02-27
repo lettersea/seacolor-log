@@ -5,7 +5,7 @@ import { isColorEnabled } from "./core/utils.js";
 const enabled = isColorEnabled();
 
 function pipe(fns) {
-  return (value) => fns.reduce((acc, fnName) => $[fnName](acc), value);
+  return (value) => fns.reduceRight((acc, fnName) => $[fnName](acc), value);
 }
 
 /**
@@ -29,7 +29,7 @@ function init(styles = new Set()) {
       if(!styles.size) throw new Error("Invalid styles");
       const text = args[0];
       if(typeof text !== "string") throw new Error("Invalid text");
-      return pipe(styles.values())(text);
+      return pipe(Array.from(styles.values()))(text);
     }
   });
 
@@ -39,3 +39,5 @@ function init(styles = new Set()) {
 const seacolor = init();
 
 export default seacolor;
+
+console.log(seacolor.red.bold('test'));
