@@ -18,6 +18,7 @@ function init(styles = new Set()) {
   const seacolor = new Proxy(() => {}, {
     get(target, property, receiver) {
       if(property === "enabled") return enabled;
+      if(property === "styles") return styles;
       if(property in $) {
         const proxy = init(new Set(styles).add(property));
         return proxy;
