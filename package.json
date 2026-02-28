@@ -8,6 +8,12 @@
     "start": "node main.js",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
+  "files": [
+    "core/*",
+    "main.js",
+    "package.json",
+    "README.md"
+  ],
   "keywords": [
     "node",
     "log",
