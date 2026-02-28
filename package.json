@@ -5,12 +5,21 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "keywords": [
-    "terminal",
-    "node"
+    "node",
+    "log",
+    "ansi"
   ],
-  "author": "",
-  "license": "MIT"
+  "author": "lettersesa <letter_sea@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ansi-colors": "^4.1.3",
+    "kleur": "^4.1.5"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
 }
