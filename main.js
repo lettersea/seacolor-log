@@ -30,6 +30,7 @@ function init(styles = new Set()) {
       if(!styles.size) throw new Error("Invalid styles");
       const text = args[0];
       if(typeof text !== "string") throw new Error("Invalid text");
+      if(!enabled) return text;
       return pipe(Array.from(styles.values()))(text);
     }
   });
@@ -40,5 +41,3 @@ function init(styles = new Set()) {
 const seacolor = init();
 
 export default seacolor;
-
-console.log(seacolor.red.bold('test'));
