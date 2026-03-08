@@ -1,4 +1,4 @@
-import seacolor from "../main.js";
+import seacolor from "../src/index.js";
 
 const ANSI = (code) => `\x1b[${code}m`;
 
@@ -56,7 +56,7 @@ describe("seacolor", () => {
   describe("enable styles", () => {
     it("should output raw content when isTTY is false", async () => {
       process.stdout.isTTY = false;
-      const seacolor = (await import("../main.js?test=isTTY")).default;
+      const seacolor = (await import("../src/index.js?test=isTTY")).default;
       expect(seacolor.enabled).not.toBeTruthy();
       expect(seacolor.red("text")).toBe("text");
     });

@@ -2,7 +2,7 @@
  * create style function
  * @param {string} name style name
  * @param {[styleCode, resetCode]} ansi style ansi code
- * @returns 
+ * @returns
  */
 export function factory(name, ansi) {
   return function (content) {
@@ -25,4 +25,3 @@ export function isColorEnabled() {
   }
   return false;
 }
-
