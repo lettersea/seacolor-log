@@ -1,6 +1,6 @@
 {
   "name": "seacolor-log",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "a light style library for terminal input in node by ANSI escape code",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
