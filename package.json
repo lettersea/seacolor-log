@@ -1,16 +1,33 @@
 {
   "name": "seacolor-log",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "a light style library for terminal input in node by ANSI escape code",
-  "main": "main.js",
-  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
   "scripts": {
-    "start": "node main.js",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.mjs"
   },
   "files": [
-    "core/*",
-    "main.js",
+    "dist/**/*",
     "package.json",
     "README.md"
   ],
@@ -21,9 +38,12 @@
   ],
   "author": "lettersesa <letter_sea@outlook.com>",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
+    "@types/node": "^20.19.35",
     "ansi-colors": "^4.1.3",
+    "jest": "^30.2.0",
     "kleur": "^4.1.5",
-    "jest": "^30.2.0"
+    "typescript": "^5.9.3"
   }
 }
